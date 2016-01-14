@@ -1,0 +1,32 @@
+# Parse database configuration from $DATABASE_URL
+DATABASES = {
+
+    'default':{
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ddf5fdh76q5f31',
+        'USER':'crtteyiuvfzrui',
+        'PASSWORD':'vDq1QNhiXUXx3AXU4QNb32a2lR',
+        'HOST':'ec2-54-204-27-102.compute-1.amazonaws.com',
+        'PORT': '5432',
+        }, 
+    
+}
+
+SECRET_KEY = '$whh@l$+upq2l%r2mx*%0mcn7emita(e2(+!jl98ajm_6&*ja5'
+
+SECURE_SSL_REDIRECT = True
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Allow all host headers
+ALLOWED_HOSTS = ['*']
+
+# Static asset configuration
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+STATIC_ROOT = 'staticfiles'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)

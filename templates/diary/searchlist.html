@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block page-heading %}Search for: {{ search }}{% endblock %}
+
+{% block btn_list %}
+{% endblock %}
+
+{% block content %}
+<section class="margin-top-10">
+	<table class="table table-striped">
+		<tr>
+			<th>Entry Title</th>
+			<th>Created on</th>
+			<th>Diary Name</th>
+			<th>Action</th>
+		</tr>
+		{% for entry in entries %}
+		{% with diary=entry.diary %}
+		<tr>
+			<td><a href="{% url 'diary_entry' diary.id entry.id %}"> {{ entry.title }} </a></td>
+			<td>{{ entry.timestamp }}</td>
+			<td>{{ diary }}</td>
+			<td>
+				<form method="post" action="{% url 'delete_entry' entry.id %}">
+					{% csrf_token %}
+					<button class="btn btn-danger">delete</button>
+				</form>
+			</td>
+		</tr>
+		{% endwith %}
+		{% endfor %}
+		{% if not entries %}
+		<tr><td>No entry under this search!</td></tr>
+		{% endif %}
+	</table>
+</section>
+{% endblock %}

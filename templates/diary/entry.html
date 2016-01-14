@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block pre_head_static%}
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}includes/redactor/redactor/redactor.css" />
+{% endblock %}
+
+{% block page-heading %}{{ diary.name }}{% endblock %}
+
+{% block btn_list %}
+<a class="pull-right btn btn-primary margin-left-10" href="{% url 'diary_home' diary.id %}">Entry list</a>
+{% endblock %}
+
+{% block content %}
+<section>
+	<form method="post" action="">
+		{% csrf_token %}
+		<input type="hidden" name="diary" value="{{ diary.id }}" />
+		{% if entry %}
+		<small>Last saved at: {{ entry.update }}</small>
+		{% endif %}
+		<div class="form-group">
+			<input name="title" type="text" class="form-control" value="{{ entry.title }}" />
+		</div>
+		<div class="form-group">
+			<textarea name="body" id="entry_area" class="form-control">{{ entry.body }}</textarea>
+		</div>
+		<button class="btn btn-primary">Save</button>
+	</form>
+</section>
+{% endblock %}
+
+{% block page_foot_inc_static%}
+<script type="text/javascript" src="{{ STATIC_URL }}includes/redactor/redactor/redactor.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}includes/redactor/plugins/table.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}includes/redactor/plugins/fontcolor.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}includes/redactor/plugins/video.js"></script>
+<script type="text/javascript">
+	$(function()
+	{
+	    $('#entry_area').redactor({
+			buttonSource: true,
+			plugins: ['table', 'video','fontcolor']
+		});
+	});
+</script>
+{% endblock %}

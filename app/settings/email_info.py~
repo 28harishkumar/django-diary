@@ -1,0 +1,11 @@
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = '28harish.28kumar@gmail.com'
+EMAIL_HOST_PASSWORD = 'ItsForOnlyMe@28'
+EMIL_PORT = 587
+
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.mandrillapp.com'
+# EMAIL_HOST_USER = '28harish.kumar@gmail.com'
+# EMAIL_HOST_PASSWORD = 'deyFxYql5MbYnjd2ztjqsA'
+# EMIL_PORT = 587

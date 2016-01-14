@@ -1,0 +1,112 @@
+/*
+* 	Owl Carousel Owl Demo Theme 
+*	v1.3.3
+*/
+.owl-theme { position:relative; }
+.owl-theme .item img { display:block; width:100%; }
+.owl-theme .discription { display:block; padding:15px; line-height:16px; position:absolute; left:0px; right:0px; bottom:0px; background:rgba(0,0,0,0.7); color:#fff; }
+.owl-theme .discription h2 { display:block; padding-bottom:5px; margin:0px; color:#FFFFFF; font-family:"Raleway"; line-height:22px; font-size:22px; font-weight:700; }
+.owl-theme .discription h2 a { color:#FFFFFF; }
+.owl-theme .discription h2 a:hover { color:#428bca; }
+.owl-theme .owl-controls{ position:absolute; left:10px; right:10px; top:10px;
+	text-align: right;
+}
+
+.owl-buttons{
+	position: relative;
+    bottom: 60px;
+}
+
+.blk-list .owl-pagination{
+	display: none;
+}
+
+/* Styling Next and Prev buttons */
+
+.owl-theme .owl-controls .owl-buttons div{
+	color: #FFF;
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+	margin: 5px;
+	padding: 3px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+	background: #869791;
+	filter: Alpha(Opacity=50);/*IE7 fix*/
+	opacity: 0.5;
+}
+/* Clickable class fix problem with hover on touch devices */
+/* Use it for non-touch hover action */
+.owl-theme .owl-controls.clickable .owl-buttons div:hover{
+	filter: Alpha(Opacity=100);/*IE7 fix*/
+	opacity: 1;
+	text-decoration: none;
+}
+
+/* Styling Pagination*/
+
+.owl-theme .owl-controls .owl-page{
+	display: inline-block;
+	zoom: 1;
+	*display: inline;/*IE7 life-saver */
+}
+.owl-theme .owl-controls .owl-page span{
+	display: block;
+	width: 13px;
+	height: 13px;
+	margin: 0px 2px;
+	-webkit-border-radius: 13px;
+	-moz-border-radius: 13px;
+	border-radius: 13px;
+	border:1px solid #fff; -webkit-transition: all 200ms linear; -moz-transition: all 200ms linear; -o-transition: all 200ms linear; transition:all 200ms linear;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span{
+	background: #bb0000; border:1px solid #bb0000;
+}
+
+/* If PaginationNumbers is true */
+
+.owl-theme .owl-controls .owl-page span.owl-numbers{
+	height: auto;
+	width: auto;
+	color: #FFF;
+	padding: 2px 10px;
+	font-size: 12px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 30px;
+}
+
+/* preloading images */
+.owl-item.loading{
+	min-height: 150px;
+	background: url(../img/AjaxLoader.gif) no-repeat center center
+}
+
+/* =============== Start Tablet & Phone Device CSS =============== */
+	/* Portrait tablet to landscape and desktop */
+	@media (min-width: 768px) and (max-width: 979px) {
+	.owl-theme .discription { padding:10px; font-size:13px; }
+	.owl-theme .discription h2 { line-height:18px; font-size:18px; }
+	}
+	/* Landscape phone to portrait tablet */
+	@media (max-width: 767px) { 
+	.owl-theme { margin-bottom:10px; }
+	.owl-theme .discription h2 { line-height:18px; font-size:18px;  }
+	}
+	/* Landscape phones and down */
+	@media (max-width: 599px) {	
+	.owl-theme .discription { padding: 10px 10px 5px 10px; }
+	.owl-theme .discription h2 { font-size:16px; }
+	.owl-theme .discription span { display:none; }
+	.owl-theme .owl-buttons{ bottom: 40px;}
+	 }
+	@media (max-width: 479px) {
+	.owl-theme .discription h2 { font-size:13px; }
+	}
+/* =============== End Tablet & Phone Device CSS =============== */

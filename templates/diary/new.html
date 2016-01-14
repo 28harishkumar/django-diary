@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+	<form method="post" action="{% if diary %}{% url 'edit_diary' diary.id %}{% else %}{% url 'new_diary' %}{% endif %}">
+		{% csrf_token %}
+		<div>
+			<input type="text" name="name" value="{{ diary.name }}" class="form-control" placeholder="Name of this diary (required)" required="required" />
+		</div>
+		<div>
+			<textarea rows="5" class="form-control" name="description" placeholder="Do you want to a note about the purpose of this diary? (Optional)">{{ diary.description }}</textarea>
+		</div>
+		<button class="btn btn-info pull-right">{% if diary %}Update Diary{% else %}Add New Diary{% endif %}</button>
+	</form>
+</section>
+{% endblock %}

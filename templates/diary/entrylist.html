@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block page-heading %}{{ diary.name }}{% endblock %}
+
+{% block btn_list %}
+<a class="pull-right btn btn-primary margin-left-10" href="{% url 'new_diary_entry' diary.id %}">Add New entry</a>
+{% endblock %}
+
+{% block content %}
+<section class="margin-top-10">
+	<table class="table table-striped">
+		<tr>
+			<th>Entry Title</th>
+			<th>Created on</th>
+			<th>Action</th>
+		</tr>
+		{% for entry in entries %}
+		<tr>
+			<td><a href="{% url 'diary_entry' diary.id entry.id %}"> {{ entry.title }} </a></td>
+			<td>{{ entry.timestamp }}</td>
+			<td>
+				<form method="post" action="{% url 'delete_entry' entry.id %}">
+					{% csrf_token %}
+					<button class="btn btn-danger">delete</button>
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+		{% if not entries %}
+		<tr><td>Warmly welcome at Find All Together' Diary! Write your first entry now.</td></tr>
+		{% endif %}
+	</table>
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="panel panel-body">
+	<legend><span>Register here</span></legend>
+	<form method="post">
+		{% csrf_token %}
+		<div class="alert-danger">{{ form.username.errors }}</div>
+		<input name="username" value='{{ form.username.value }}' placeholder="Username" type="text" required="required" class="form-control" />
+		<div class="alert-danger">{{ form.email.errors }}</div>
+		<input name="email" value='{{ form.email.value }}' placeholder="Email" type="email" required="required" class="form-control" />
+		<div class="alert-danger">{{ form.first_name.errors }}</div>
+		<input name="first_name" value='{{ form.first_name.value }}' placeholder="First Name" type="text" required="required" class="form-control" />
+		<div class="alert-danger">{{ form.password2.errors }}</div>
+		<input name="password1" placeholder="Password" type="password" required="required" class="form-control" />
+		<input name="password2" placeholder="Re-password" type="password" required="required" class="form-control" />
+		<button class="btn btn-primary pull-right">Register Me</button>
+	</form>
+</section>
+
+
+{% endblock %}

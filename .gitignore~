@@ -1,0 +1,5 @@
+*.pyc
+staticfiles
+app/settings/local.*
+user/migrations/*
+diary/migrations/*

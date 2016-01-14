@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block btn_list %}
+<a class="pull-right btn btn-primary margin-left-10" href="{% url 'new_diary' %}">Add New diary</a>
+{% endblock %}
+
+{% block content %}
+<section class="margin-top-10">
+	<table class="table table-striped">
+		<tr>
+			<th>Diary Name</th>
+			<th>Created on</th>
+			<th colspan="2">Action</th>
+		</tr>
+		{% for diary in diaries %}
+		<tr>
+			<td><a href="{% url 'diary_home' diary.id %}"> {{ diary.name|capfirst }} </a></td>
+			<td>{{ diary.timestamp }}</td>
+			<td><a href="{% url 'edit_diary' diary.id %}" class="btn btn-info">Edit</a></td>
+			<td>
+				<form method="post" action="{% url 'delete_diary' diary.id %}">
+					{% csrf_token %}
+					<button class="btn btn-danger">delete</button>
+				</form>
+			</td>
+		</tr>
+		{% endfor %}
+	</table>
+</section>
+{% endblock %}
