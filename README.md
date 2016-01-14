@@ -11,3 +11,6 @@ Simple diary app in django for learning django
       * python3 manage.py migrate
       * python3 manage.py runserver
   6. Open link <http://localhost:8000>
+
+## License
+Project is under Apache License. For more detail read LICENSE file.
